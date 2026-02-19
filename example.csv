@@ -1,0 +1,9 @@
+ip,username,password,name,port,jumphost,jumphost_user,jumphost_ssh_key,jumphost_ssh_password
+192.0.2.10,root,password1,datacenter1-server1,443,bastion.dc1.example.com,admin,~/.ssh/dc1_key,
+192.0.2.11,root,password2,datacenter1-server2,443,bastion.dc1.example.com,admin,~/.ssh/dc1_key,
+192.0.2.12,root,password3,datacenter1-server3,443,bastion.dc1.example.com,sysadmin,,jumphost_password
+192.0.2.20,root,password4,datacenter2-server1,443,bastion.dc2.example.com,,,
+192.0.2.21,root,password5,datacenter2-server2,8443,bastion.dc2.example.com,,,
+192.0.2.30,root,password6,direct-access-server1,,,,,,
+192.0.2.31,root,password7,direct-access-server2,443,,,,
+192.0.2.40,root,password8,,,,,,

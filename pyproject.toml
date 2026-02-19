@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "idrac-power"
+version = "0.1.0"
+description = "CLI tool to connect to Dell iDRAC and get current power usage"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "Allen St. John", email = "astjohn+github@dvce.us"}
+]
+dependencies = [
+    "click>=8.0.0",
+    "requests>=2.28.0",
+    "paramiko>=3.0.0",
+    "sshtunnel>=0.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "ruff>=0.0.260",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+idrac-power = "idrac_power.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+select = ["E", "F", "W", "I", "N", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --cov=idrac_power --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
